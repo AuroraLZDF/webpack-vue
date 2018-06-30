@@ -9,7 +9,7 @@ var config = {
     // 出口
     output: {
         path: path.join(__dirname, './dist'),
-        publicPath: '/dist',
+        publicPath: '/dist/',
         filename: 'main.js'
     },
     // 加载器
@@ -38,12 +38,16 @@ var config = {
                     use: 'css-loader',
                     fallback: 'style-loader'
                 })
+            },
+            {
+                test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
+                loader: 'url-loader?limit=1024'
             }
         ]
     },
     // 插件
     plugins: [
-        new ExtractTextPlugin('main.css')
+        new ExtractTextPlugin('main.css'),
     ]
 };
 
